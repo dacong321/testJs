@@ -149,3 +149,69 @@ console.log(sour);
 console.log("============================== \n");
 
 //------------------------------------------------------------------------------------------------------------------
+console.log('----es6 中的解构赋值知识点---');
+let obj = {
+  ani1: {
+    prefabName1: "动画1的名字",//动画1的名字
+    liangBaoName: "Play传入的亮宝的动画名",//Play传入的亮宝的动画名
+    huanBaoName: "Play传入的换宝的动画名",//Play传入的换宝的动画名
+
+  },
+  ani2: {
+    prefabName2: "动画2的名字",//动画2的名字
+    dabao1: "",//Play传入的亮宝的动画名
+    dabao2: "",//Play传入的换宝的动画名
+  }
+}
+let {prefabName1,liangBaoName,huanBaoName} = obj.ani1;  //let {}中的成员，必须与obj.ani1的成员一致。这样解构赋值才会有效
+let {prefabName2,dabao1,dabao2} = obj.ani2;
+
+console.log("prefabName1", prefabName1);
+console.log("liangBaoName", liangBaoName);
+console.log("huanBaoName", huanBaoName);
+
+//-- 讲解 用到的es6
+//let {a,b,c};  单纯的写下这一句会报错 Missing initializer in destructuring declaration(缺失 初始化 在解构赋值中)
+let { aa,bb,cc}= {"aa":3,"b":6,"ccc":23} //同理： //let {}中的成员，必须与{"aa":3,"b":6,"c":23}里的成员一致。这样解构赋值才会有效。
+console.log(aa)//3
+console.log(bb)//undefined
+console.log(cc)//undefined
+
+console.log("============================== \n");
+
+//-- js中的解构赋值
+//可以解构赋值的数据类型 右边如果不是数组，则必须为可遍历的结构
+//1.  解构赋值为数组中提取值，按照对应位置，对变量赋值。
+let [x, , y] = [1, 2, 3];  //x =1   y=3
+let [ , , third] = ["foo", "bar", "baz"];//third=baz
+let [jga, jgb] = ["test1"];//y undefined
+let [kgc, jgd] = [1, 2, 3]; //c=1 d=2 
+
+console.log(x)
+console.log(y)
+console.log(third)
+console.log(jga)
+console.log(jgb)
+console.log(kgc)
+console.log(jgd)
+// 1
+// 3
+// baz
+// test1
+// undefined
+// 1
+// 2
+
+console.log("============================== \n");
+//------------------------------------------------------------------------------------------------------------------
+let myHandCard = [1, 2, 3];
+function ttestCanShu(myHandCard) {
+  myHandCard.unshift("hj");
+}
+
+console.log("============================== myHandCardSrc", myHandCard);
+
+ttestCanShu(myHandCard);
+console.log("============================== myHandCardNew", myHandCard);
+console.log((7 & 1) == 1);
+
